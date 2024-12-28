@@ -12,6 +12,7 @@ class Output:
         self.amount = amount
         self.address = address
 
+# in each transaction, create a method that make sure amounts in inputs are greater than amounts in outputs, ai!
 class Transaction:
     def __init__(self, version: int, inputs: List[Input], outputs: List[Output], locktime: int = None):
         self.version = version
