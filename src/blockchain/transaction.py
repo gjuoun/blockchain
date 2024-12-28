@@ -12,6 +12,7 @@ class Output:
         self.recipient = recipient
 
 class Transaction:
+    # use current time as timestamp for locktime, ai!
     def __init__(self, version: int, inputs: List[Input], outputs: List[Output], locktime: int):
         self.version = version
         self.inputs = inputs
