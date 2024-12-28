@@ -3,6 +3,11 @@ import os
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv()
+def main():
+    """Initialize and return the OpenAI client"""
+    load_dotenv()
+    client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    return client
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+if __name__ == "__main__":
+    client = main()
