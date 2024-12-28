@@ -1,7 +1,13 @@
 
 import time
-import uuid
 from typing import List, Optional
+
+class InvalidTransactionException(Exception):
+    """Exception raised when a transaction is invalid"""
+    def __init__(self, total_input: int, total_output: int):
+        super().__init__(f"Transaction invalid: total inputs ({total_input}) less than total outputs ({total_output})")
+        self.total_input = total_input
+        self.total_output = total_output
 class Input:
     def __init__(self, address: str, amount: int):
         self.address = address
@@ -19,7 +25,6 @@ class Transaction:
         self.outputs = outputs
         self.locktime = int(time.time()) if locktime is None else locktime
         self.validate_transaction()
-    # this method should return a remaining balance that is reward for the miner, ai!
     def validate_transaction(self):
         """
         Validate that total input amounts are >= total output amounts
@@ -29,7 +34,6 @@ class Transaction:
         total_output = sum(output.amount for output in self.outputs)
         
         if total_input < total_output:
-            # use a custom exception, create a class as needed. ai!
-            raise ValueError(f"Transaction invalid: total inputs ({total_input}) less than total outputs ({total_output})")
+            raise InvalidTransactionException(total_input, total_output)
         
         return total_input - total_output
