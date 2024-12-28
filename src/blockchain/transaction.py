@@ -21,9 +21,14 @@ class Transaction:
         self.validate_transaction()
     # this method should return a remaining balance that is reward for the miner, ai!
     def validate_transaction(self):
-        """Validate that total input amounts are >= total output amounts"""
+        """
+        Validate that total input amounts are >= total output amounts
+        Returns the remaining balance that can be used as miner reward
+        """
         total_input = sum(input.amount for input in self.inputs)
         total_output = sum(output.amount for output in self.outputs)
         
         if total_input < total_output:
             raise ValueError(f"Transaction invalid: total inputs ({total_input}) less than total outputs ({total_output})")
+        
+        return total_input - total_output
