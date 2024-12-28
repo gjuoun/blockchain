@@ -5,8 +5,8 @@ from datetime import datetime
 from dotenv import load_dotenv
 from openai import OpenAI
 
-def save_to_json(response: str, filename: str = "chat_history.json"):
-    """Save the response to a JSON file"""
+def save_to_json(conversation: List[dict], filename: str = "chat_history.json"):
+    """Save the conversation to a JSON file"""
     try:
         # Try to load existing data
         with open(filename, "r") as f:
@@ -18,7 +18,7 @@ def save_to_json(response: str, filename: str = "chat_history.json"):
     # Append new entry
     entry = {
         "timestamp": datetime.now().isoformat(),
-        "response": response
+        "conversation": conversation
     }
     data.append(entry)
     
@@ -36,15 +36,21 @@ def main():
         messages=[{"role": "user", "content": "Hello!"}],
         stream=True
     )
-    # save the roles and messages for both parties: AI and User, AI!
+    # Store conversation with both user and AI messages
+    conversation = [
+        {"role": "user", "content": "Hello!"}
+    ]
     full_response = ""
     for chunk in stream:
         if chunk.choices[0].delta.content:
             content = chunk.choices[0].delta.content
             full_response += content
     
-    # Save the complete response to JSON
-    save_to_json(full_response)
+    # Add AI response to conversation
+    conversation.append({"role": "assistant", "content": full_response})
+    
+    # Save the complete conversation to JSON
+    save_to_json(conversation)
 
 
 
