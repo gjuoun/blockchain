@@ -4,15 +4,15 @@ from typing import Any, List
 from .transaction import Input, Output, Transaction
 
 class Block:
-    def __init__(self, index: int, previous_hash: str, timestamp: int, data: List[Transaction]):
+    def __init__(self, index: int, previous_hash: str, timestamp: int, transactions: List[Transaction]):
         self.index = index
         self.previous_hash = previous_hash
         self.timestamp = timestamp
-        self.data = data
+        self.transactions = transactions
         self.hash = self.calculate_hash()
 
     def calculate_hash(self):
-        value = f"{self.index}{self.previous_hash}{self.timestamp}{self.data}".encode()
+        value = f"{self.index}{self.previous_hash}{self.timestamp}{self.transactions}".encode()
         return hashlib.sha256(value).hexdigest()
 
 class Blockchain:
