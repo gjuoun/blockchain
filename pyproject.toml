@@ -8,4 +8,6 @@ dependencies = [
     "ipykernel>=6.29.5",
     "python-dotenv>=1.0.1",
     "openai>=1.58.1",
+    "base58>=2.1.1",
+    "bech32>=1.2.0",
 ]

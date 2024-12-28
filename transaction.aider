@@ -1,3 +1,2 @@
 /drop
-/add       src/transaction.py
-/read-only CONVENTIONS.md
+/add       src/blockchain/address.py
