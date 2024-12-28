@@ -1,5 +1,5 @@
 from typing import List
-
+# remove all docstrings in this file, AI!
 class Input:
     """Represents a transaction input that references a previous transaction's output.
     
