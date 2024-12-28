@@ -40,8 +40,6 @@ def main():
     for chunk in stream:
         if chunk.choices[0].delta.content:
             content = chunk.choices[0].delta.content
-            # do not print now, AI!
-            print(content, end="")
             full_response += content
     
     # Save the complete response to JSON
