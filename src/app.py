@@ -27,7 +27,6 @@ def main():
         print(f"Previous Hash: {block.previous_hash}")
         print(f"Hash: {block.hash}")
         print("Transactions:")
-        # update transaction class based on the context below, ai!
         if block.transactions:
             for tx in block.transactions:
                 for output in tx.outputs:

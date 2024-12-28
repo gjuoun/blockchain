@@ -16,6 +16,5 @@ class Transaction:
     def __init__(self, version: int, inputs: List[Input], outputs: List[Output], locktime: int = None):
         self.version = version
         self.inputs = inputs
-        self.locktime = int(time.time()) if locktime is None else locktime
         self.outputs = outputs
-        self.locktime = locktime
+        self.locktime = int(time.time()) if locktime is None else locktime
