@@ -12,4 +12,4 @@ def main():
 
 if __name__ == "__main__":
     client = main()
-    # can you print something? AI! 
+    print("OpenAI client initialized successfully!")
