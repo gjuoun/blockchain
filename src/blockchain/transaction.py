@@ -3,6 +3,7 @@ import time
 from typing import List
 
 class Input:
+    # make tx_id optional, use uuid v7 as the fallback, ai!
     def __init__(self, tx_id: str, output_index: int):
         self.tx_id = tx_id
         self.output_index = output_index
