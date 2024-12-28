@@ -38,7 +38,7 @@ def main():
     )
     # Store conversation with both user and AI messages
     conversation = [
-        {"role": "user", "content": "Hello!"}
+        {"role": "user", "content": "what's amd?"}
     ]
     full_response = ""
     for chunk in stream:

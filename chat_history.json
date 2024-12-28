@@ -1,0 +1,32 @@
+[
+  {
+    "timestamp": "2024-12-28T03:10:38.450595",
+    "response": "Hello! How can I assist you today?"
+  },
+  {
+    "timestamp": "2024-12-28T03:12:58.758268",
+    "conversation": [
+      {
+        "role": "user",
+        "content": "Hello!"
+      },
+      {
+        "role": "assistant",
+        "content": "Hello! How can I assist you today?"
+      }
+    ]
+  },
+  {
+    "timestamp": "2024-12-28T03:13:42.427919",
+    "conversation": [
+      {
+        "role": "user",
+        "content": "what's amd?"
+      },
+      {
+        "role": "assistant",
+        "content": "Hello! How can I assist you today?"
+      }
+    ]
+  }
+]
