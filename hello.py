@@ -1,6 +1,6 @@
 import 
 def main():
-    print("Hello from blockchain2!")
+    print("helloJun")
 
 if __name__ == "__main__":
     main()
