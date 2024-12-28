@@ -1,7 +1,7 @@
 import hashlib
 import time
 from typing import Any, List
-from .transaction import Input, Output, Transaction
+from transaction import Input, Output, Transaction
 
 class Block:
     def __init__(self, index: int, previous_hash: str, timestamp: int, data: List[Transaction]):
@@ -13,6 +13,7 @@ class Block:
 
     def calculate_hash(self):
         value = f"{self.index}{self.previous_hash}{self.timestamp}{self.data}".encode()
+        print(value) 
         return hashlib.sha256(value).hexdigest()
 
 class Blockchain:
