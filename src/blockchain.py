@@ -1,4 +1,3 @@
-# rename this file as "main.py". AI!
 import hashlib
 import time
 from typing import Any, List
