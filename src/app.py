@@ -1,5 +1,5 @@
 from blockchain.blockchain import Blockchain
-from blockchain.transaction import Transaction
+from blockchain.transaction import Transaction, Input, Output
 
 def main():
     blockchain = Blockchain()
