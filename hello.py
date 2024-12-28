@@ -1,23 +1,7 @@
 import hashlib
 import time
 from typing import Any, List
-
-class Input:
-    def __init__(self, tx_id: str, output_index: int):
-        self.tx_id = tx_id
-        self.output_index = output_index
-
-class Output:
-    def __init__(self, value: float, recipient: str):
-        self.value = value
-        self.recipient = recipient
-
-class Transaction:
-    def __init__(self, version: int, inputs: List[Input], outputs: List[Output], locktime: int):
-        self.version = version
-        self.inputs = inputs
-        self.outputs = outputs
-        self.locktime = locktime
+from transaction import Input, Output, Transaction
 
 class Block:
     def __init__(self, index: int, previous_hash: str, timestamp: int, data: List[Transaction]):
