@@ -1,7 +1,7 @@
 import hashlib
 import time
 from typing import Any, List
-from transaction import Input, Output, Transaction
+from src.transaction import Input, Output, Transaction
 
 class Block:
     def __init__(self, index: int, previous_hash: str, timestamp: int, data: List[Transaction]):
