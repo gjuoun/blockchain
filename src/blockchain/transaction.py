@@ -1,4 +1,3 @@
-from typing import List
 
 class Input:
     def __init__(self, tx_id: str, output_index: int):
@@ -10,9 +9,8 @@ class Output:
         self.value = value
         self.recipient = recipient
 
-# remove the types from below. ai!
 class Transaction:
-    def __init__(self, version: int, inputs: List[Input], outputs: List[Output], locktime: int):
+    def __init__(self, version, inputs, outputs, locktime):
         self.version = version
         self.inputs = inputs
         self.outputs = outputs
