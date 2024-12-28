@@ -6,8 +6,16 @@ from openai import OpenAI
 def main():
     """Initialize and return the OpenAI client"""
     load_dotenv()
-    # print the stream result from OpenAI client, AI!
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+    # Example stream request
+    stream = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[{"role": "user", "content": "Hello!"}],
+        stream=True
+    )
+    for chunk in stream:
+        if chunk.choices[0].delta.content:
+            print(chunk.choices[0].delta.content, end="")
 
 
 
