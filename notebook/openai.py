@@ -9,5 +9,7 @@ def main():
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
     return client
 
+
 if __name__ == "__main__":
     client = main()
+    # can you print something? AI! 
