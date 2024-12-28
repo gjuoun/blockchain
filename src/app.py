@@ -4,6 +4,7 @@ from blockchain.transaction import Transaction, Input, Output
 def main():
     blockchain = Blockchain()
     
+    # move it out of main, ai!
     def create_sample_transactions():
         # Create sample inputs and outputs
         input1 = Input("genesis", 0)
