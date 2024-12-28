@@ -4,25 +4,25 @@ from blockchain.transaction import Transaction, Input, Output
 def main():
     blockchain = Blockchain()
     
-    ### wrap the generation of the transactions into a function, ai!
-    # Create sample inputs and outputs
-    input1 = Input("genesis", 0)
-    output1 = Output(50, "Bob")
-    input2 = Input("tx1", 0)
-    output2 = Output(30, "Charlie")
-    input3 = Input("tx2", 0)
-    output3 = Output(20, "Alice")
-    
-    # Create transactions
-    tx1 = Transaction(1, [input1], [output1])
-    tx2 = Transaction(1, [input2], [output2])
-    tx3 = Transaction(1, [input3], [output3])
-    
-    # Add blocks with transactions
-    blockchain.add_block([tx1])
-    blockchain.add_block([tx2, tx3])
+    def create_sample_transactions():
+        # Create sample inputs and outputs
+        input1 = Input("genesis", 0)
+        output1 = Output(50, "Bob")
+        input2 = Input("tx1", 0)
+        output2 = Output(30, "Charlie")
+        input3 = Input("tx2", 0)
+        output3 = Output(20, "Alice")
+        
+        # Create transactions
+        tx1 = Transaction(1, [input1], [output1])
+        tx2 = Transaction(1, [input2], [output2])
+        tx3 = Transaction(1, [input3], [output3])
+        
+        # Add blocks with transactions
+        blockchain.add_block([tx1])
+        blockchain.add_block([tx2, tx3])
 
-    ### end of the function
+    create_sample_transactions()
     
     # Print the blockchain
     for block in blockchain.chain:
