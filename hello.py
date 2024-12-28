@@ -1,8 +1,9 @@
 import hashlib
 import time
+from typing import Any
 
 class Block:
-    def __init__(self, index: int, previous_hash: str, timestamp: int, data: str, hash: str):
+    def __init__(self, index: int, previous_hash: str, timestamp: int, data: Any, hash: str):
         self.index = index
         self.previous_hash = previous_hash
         self.timestamp = timestamp
