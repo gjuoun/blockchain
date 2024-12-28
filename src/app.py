@@ -4,7 +4,6 @@ from blockchain.transaction import Transaction, Input, Output
 def main():
     blockchain = Blockchain()
     
-    # Create some sample transactions
     # Create sample inputs and outputs
     input1 = Input("genesis", 0)
     output1 = Output(50, "Bob")
@@ -28,8 +27,13 @@ def main():
         print(f"Previous Hash: {block.previous_hash}")
         print(f"Hash: {block.hash}")
         print("Transactions:")
-        for tx in block.transactions:
-            print(f"  {tx.sender} sent {tx.amount} to {tx.recipient}")
+        # update transaction class based on the context below, ai!
+        if block.transactions:
+            for tx in block.transactions:
+                for output in tx.outputs:
+                    print(f"  Transfer {output.amount} coins to {output.recipient}")
+        else:
+            print("  Genesis block - no transactions")
 
 if __name__ == "__main__":
     main()
