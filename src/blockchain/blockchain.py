@@ -16,9 +16,8 @@ class Block:
         return hashlib.sha256(value).hexdigest()
 
 class Blockchain:
-    # initialize all parameters and their types, AI!
-    def __init__(self):
-        self.chain = [self.create_genesis_block()]
+    def __init__(self) -> None:
+        self.chain: List[Block] = [self.create_genesis_block()]
 
     def create_genesis_block(self):
         return Block(0, "0", int(time.time()), [])
