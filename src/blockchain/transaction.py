@@ -3,6 +3,7 @@ import time
 import uuid
 from typing import List, Optional
 
+# remove type guards in this file, ai!
 class Input:
     def __init__(self, address: str, amount: int):
         if not address:
