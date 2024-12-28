@@ -1,0 +1,1 @@
+# now create a class for addresses, based on the public key and private key, ai!
