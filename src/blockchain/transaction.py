@@ -1,11 +1,11 @@
 
 import time
-from typing import List
+import uuid
+from typing import List, Optional
 
 class Input:
-    # make tx_id optional, use uuid v7 as the fallback, ai!
-    def __init__(self, tx_id: str, output_index: int):
-        self.tx_id = tx_id
+    def __init__(self, tx_id: Optional[str] = None, output_index: int = 0):
+        self.tx_id = str(uuid.uuid7()) if tx_id is None else tx_id
         self.output_index = output_index
 
 class Output:
