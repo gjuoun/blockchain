@@ -1,7 +1,7 @@
 import hashlib
 import time
 from typing import Any, List
-from transaction import Input, Output, Transaction
+from .transaction import Input, Output, Transaction
 
 class Block:
     def __init__(self, index: int, previous_hash: str, timestamp: int, data: List[Transaction]):
@@ -13,10 +13,10 @@ class Block:
 
     def calculate_hash(self):
         value = f"{self.index}{self.previous_hash}{self.timestamp}{self.data}".encode()
-        print(value) 
         return hashlib.sha256(value).hexdigest()
 
 class Blockchain:
+    # initialize all parameters and their types, AI!
     def __init__(self):
         self.chain = [self.create_genesis_block()]
 
@@ -45,16 +45,3 @@ class Blockchain:
                 return False
 
         return True
-
-def main():
-    blockchain = Blockchain()
-    transactions1 = [Transaction(1, [Input("tx_id_1", 0)], [Output(10.0, "recipient_1")], 0)]
-    transactions2 = [Transaction(1, [Input("tx_id_2", 0)], [Output(15.0, "recipient_2")], 0)]
-    blockchain.add_block(transactions1)
-    blockchain.add_block(transactions2)
-
-    for block in blockchain.chain:
-        print(f"Index: {block.index}, Data: {block.data}, Hash: {block.hash}")
-
-if __name__ == "__main__":
-    main()
