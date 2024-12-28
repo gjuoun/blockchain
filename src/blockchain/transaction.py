@@ -9,6 +9,7 @@ class Output:
         self.value = value
         self.recipient = recipient
 
+# revert, ai!
 class Transaction:
     def __init__(self, version, inputs, outputs, locktime):
         self.version = version
