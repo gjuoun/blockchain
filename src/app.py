@@ -4,6 +4,7 @@ from blockchain.transaction import Transaction, Input, Output
 def main():
     blockchain = Blockchain()
     
+    ### wrap the generation of the transactions into a function, ai!
     # Create sample inputs and outputs
     input1 = Input("genesis", 0)
     output1 = Output(50, "Bob")
@@ -20,6 +21,8 @@ def main():
     # Add blocks with transactions
     blockchain.add_block([tx1])
     blockchain.add_block([tx2, tx3])
+
+    ### end of the function
     
     # Print the blockchain
     for block in blockchain.chain:
