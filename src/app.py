@@ -30,7 +30,7 @@ def main():
         if block.transactions:
             for tx in block.transactions:
                 for output in tx.outputs:
-                    print(f"  Transfer {output.amount} coins to {output.recipient}")
+                    print(f"  Transfer {output.value} coins to {output.recipient}")
         else:
             print("  Genesis block - no transactions")
 
