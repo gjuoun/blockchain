@@ -1,7 +1,30 @@
 from typing import List, Optional
 import os
+import json
+from datetime import datetime
 from dotenv import load_dotenv
 from openai import OpenAI
+
+def save_to_json(response: str, filename: str = "chat_history.json"):
+    """Save the response to a JSON file"""
+    try:
+        # Try to load existing data
+        with open(filename, "r") as f:
+            data = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        # If file doesn't exist or is empty, start new list
+        data = []
+    
+    # Append new entry
+    entry = {
+        "timestamp": datetime.now().isoformat(),
+        "response": response
+    }
+    data.append(entry)
+    
+    # Write back to file
+    with open(filename, "w") as f:
+        json.dump(data, f, indent=2)
 
 def main():
     """Initialize and return the OpenAI client"""
@@ -13,9 +36,15 @@ def main():
         messages=[{"role": "user", "content": "Hello!"}],
         stream=True
     )
+    full_response = ""
     for chunk in stream:
         if chunk.choices[0].delta.content:
-            print(chunk.choices[0].delta.content, end="")
+            content = chunk.choices[0].delta.content
+            print(content, end="")
+            full_response += content
+    
+    # Save the complete response to JSON
+    save_to_json(full_response)
 
 
 
