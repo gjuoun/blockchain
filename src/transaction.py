@@ -1,5 +1,6 @@
 from typing import List
 
+# generate docstrings, AI!
 class Input:
     def __init__(self, tx_id: str, output_index: int):
         self.tx_id = tx_id
