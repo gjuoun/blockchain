@@ -19,7 +19,7 @@ class Transaction:
         self.outputs = outputs
         self.locktime = int(time.time()) if locktime is None else locktime
         self.validate_transaction()
-
+    # this method should return a remaining balance that is reward for the miner, ai!
     def validate_transaction(self):
         """Validate that total input amounts are >= total output amounts"""
         total_input = sum(input.amount for input in self.inputs)
