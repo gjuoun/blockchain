@@ -2,7 +2,7 @@ import hashlib
 import time
 
 class Block:
-    def __init__(self, index, previous_hash, timestamp, data, hash):
+    def __init__(self, index: int, previous_hash: str, timestamp: int, data: str, hash: str):
         self.index = index
         self.previous_hash = previous_hash
         self.timestamp = timestamp
