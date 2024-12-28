@@ -1,4 +1,5 @@
 
+import time
 from typing import List
 
 class Input:
@@ -12,9 +13,9 @@ class Output:
         self.recipient = recipient
 
 class Transaction:
-    # use current time as timestamp for locktime, keep it as parameter, ai!
-    def __init__(self, version: int, inputs: List[Input], outputs: List[Output], locktime: int):
+    def __init__(self, version: int, inputs: List[Input], outputs: List[Output], locktime: int = None):
         self.version = version
         self.inputs = inputs
+        self.locktime = int(time.time()) if locktime is None else locktime
         self.outputs = outputs
         self.locktime = locktime

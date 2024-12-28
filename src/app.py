@@ -5,9 +5,18 @@ def main():
     blockchain = Blockchain()
     
     # Create some sample transactions
-    tx1 = Transaction("Alice", "Bob", 50)
-    tx2 = Transaction("Bob", "Charlie", 30)
-    tx3 = Transaction("Charlie", "Alice", 20)
+    # Create sample inputs and outputs
+    input1 = Input("genesis", 0)
+    output1 = Output(50, "Bob")
+    input2 = Input("tx1", 0)
+    output2 = Output(30, "Charlie")
+    input3 = Input("tx2", 0)
+    output3 = Output(20, "Alice")
+    
+    # Create transactions
+    tx1 = Transaction(1, [input1], [output1])
+    tx2 = Transaction(1, [input2], [output2])
+    tx3 = Transaction(1, [input3], [output3])
     
     # Add blocks with transactions
     blockchain.add_block([tx1])
