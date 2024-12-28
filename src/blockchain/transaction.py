@@ -9,8 +9,9 @@ class Input:
         self.output_index = output_index
 
 class Output:
-    # use amount in satoshis, refactor otherfiles as needed, ai!
-    def __init__(self, value: float, recipient: str):
+    def __init__(self, value: int, recipient: str):
+        if not isinstance(value, int) or value < 0:
+            raise ValueError("Value must be a non-negative integer representing satoshis")
         self.value = value
         self.recipient = recipient
 

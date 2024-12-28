@@ -4,11 +4,11 @@ from blockchain.transaction import Transaction, Input, Output
 def create_sample_transactions(blockchain):
     # Create sample inputs and outputs
     input1 = Input("genesis", 0)
-    output1 = Output(50, "Bob")
+    output1 = Output(5000000000, "Bob")  # 50 BTC in satoshis
     input2 = Input("tx1", 0)
-    output2 = Output(30, "Charlie")
+    output2 = Output(3000000000, "Charlie")  # 30 BTC in satoshis
     input3 = Input("tx2", 0)
-    output3 = Output(20, "Alice")
+    output3 = Output(2000000000, "Alice")  # 20 BTC in satoshis
     
     # Create transactions
     tx1 = Transaction(1, [input1], [output1])
