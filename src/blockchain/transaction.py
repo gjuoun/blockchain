@@ -29,6 +29,7 @@ class Transaction:
         total_output = sum(output.amount for output in self.outputs)
         
         if total_input < total_output:
+            # use a custom exception, create a class as needed. ai!
             raise ValueError(f"Transaction invalid: total inputs ({total_input}) less than total outputs ({total_output})")
         
         return total_input - total_output
