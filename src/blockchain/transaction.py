@@ -9,6 +9,7 @@ class Input:
         self.output_index = output_index
 
 class Output:
+    # use amount in satoshis, refactor otherfiles as needed, ai!
     def __init__(self, value: float, recipient: str):
         self.value = value
         self.recipient = recipient
