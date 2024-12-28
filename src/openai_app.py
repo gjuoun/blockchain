@@ -36,6 +36,7 @@ def main():
         messages=[{"role": "user", "content": "Hello!"}],
         stream=True
     )
+    # save the roles and messages for both parties: AI and User, AI!
     full_response = ""
     for chunk in stream:
         if chunk.choices[0].delta.content:
