@@ -12,8 +12,8 @@ class Block:
         self.hash = self.calculate_hash()
 
     def calculate_hash(self):
-        # whats the print result of the value? print it please AI!
         value = f"{self.index}{self.previous_hash}{self.timestamp}{self.data}".encode()
+        print(value)  # Print the value to see the result
         return hashlib.sha256(value).hexdigest()
 
 class Blockchain:
