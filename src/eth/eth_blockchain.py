@@ -60,7 +60,7 @@ class EthBlockchain:
 
     def add_transaction(self, transaction: Transaction) -> bool:
         # Validate transaction
-        sender_account = self.accounts.get(transaction.sender)
+        sender_account = self.accounts.get(transaction.sender.address)
         if not sender_account:
             return False
             
@@ -94,8 +94,8 @@ class EthBlockchain:
             
         # Update accounts
         for tx in new_block.transactions:
-            sender = self.accounts[tx.sender]
-            receiver = self.accounts[tx.receiver]
+            sender = self.accounts[tx.sender.address]
+            receiver = self.accounts[tx.receiver.address]
             
             # Update balances
             sender.balance -= tx.value + (tx.gas * tx.gas_price)
