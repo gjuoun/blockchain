@@ -104,9 +104,10 @@ class EthBlockchain:
             # Update nonces
             sender.nonce += 1
             
-        # Miner reward
+        # Miner reward (block reward + gas fees)
         miner_account = self.accounts[miner_address]
-        miner_account.balance += 5  # Fixed block reward
+        total_gas_fees = sum(tx.gas * tx.gas_price for tx in new_block.transactions)
+        miner_account.balance += 5 + total_gas_fees  # Block reward + gas fees
         
         self.chain.append(new_block)
         self.pending_transactions = []
