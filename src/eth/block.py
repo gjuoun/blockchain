@@ -1,8 +1,11 @@
-from typing import List
+from typing import List, TYPE_CHECKING
 import time
 import hashlib
 import json
 from .account import Account
+
+if TYPE_CHECKING:
+    from .eth_blockchain import Transaction
 
 class Block:
     def __init__(self, 
