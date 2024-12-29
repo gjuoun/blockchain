@@ -2,13 +2,8 @@ from typing import List, Dict, Optional
 import time
 import hashlib
 import json
-from dataclasses import dataclass
-
-@dataclass
-class Account:
-    address: str
-    balance: int
-    nonce: int
+from .account import Account
+from .block import Block
 
 @dataclass
 class Transaction:
@@ -32,35 +27,6 @@ class Transaction:
             'nonce': self.nonce
         }
         return hashlib.sha256(json.dumps(tx_data).encode()).hexdigest()
-
-class Block:
-    def __init__(self, 
-                 index: int, 
-                 previous_hash: str, 
-                 timestamp: int, 
-                 transactions: List[Transaction],
-                 miner: str,
-                 difficulty: int,
-                 nonce: int):
-        self.index = index
-        self.previous_hash = previous_hash
-        self.timestamp = timestamp
-        self.transactions = transactions
-        self.miner = miner
-        self.difficulty = difficulty
-        self.nonce = nonce
-
-    def calculate_hash(self) -> str:
-        block_data = {
-            'index': self.index,
-            'previous_hash': self.previous_hash,
-            'timestamp': self.timestamp,
-            'transactions': [tx.hash() for tx in self.transactions],
-            'miner': self.miner,
-            'difficulty': self.difficulty,
-            'nonce': self.nonce
-        }
-        return hashlib.sha256(json.dumps(block_data).encode()).hexdigest()
 
 class EthBlockchain:
     def __init__(self, difficulty: int = 2):
