@@ -1,4 +1,4 @@
-from src.eth.eth_blockchain import EthBlockchain
+from src.eth.eth_blockchain import EthBlockchain, Transaction
 
 def main():
     # Initialize blockchain
@@ -16,8 +16,7 @@ def main():
     print(f"Bob's balance: {blockchain.get_balance(bob.address)}")
     
     # Create transactions
-    # blockchain.Transaction doesn't exist, ai!
-    tx1 = blockchain.Transaction(
+    tx1 = Transaction(
         sender=alice,
         receiver=bob,
         value=100,
@@ -25,7 +24,7 @@ def main():
         gas_price=1
     )
     
-    tx2 = blockchain.Transaction(
+    tx2 = Transaction(
         sender=alice,
         receiver=bob,
         value=50,
