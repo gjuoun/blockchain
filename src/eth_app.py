@@ -16,6 +16,7 @@ def main():
     print(f"Bob's balance: {blockchain.get_balance(bob.address)}")
     
     # Create transactions
+    # blockchain.Transaction doesn't exist, ai!
     tx1 = blockchain.Transaction(
         sender=alice,
         receiver=bob,
