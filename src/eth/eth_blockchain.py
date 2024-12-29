@@ -8,8 +8,8 @@ from .block import Block
 
 @dataclass
 class Transaction:
-    sender: str
-    receiver: str
+    sender: Account
+    receiver: Account
     value: int
     gas: int
     gas_price: int
@@ -19,8 +19,8 @@ class Transaction:
 
     def hash(self) -> str:
         tx_data = {
-            'sender': self.sender,
-            'receiver': self.receiver,
+            'sender': self.sender.address,
+            'receiver': self.receiver.address,
             'value': self.value,
             'gas': self.gas,
             'gas_price': self.gas_price,

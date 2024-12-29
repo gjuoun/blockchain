@@ -17,17 +17,16 @@ def main():
     
     # Create transactions
     tx1 = blockchain.Transaction(
-        # use account as the parameter instead of address, ai!
-        sender=alice.address,
-        receiver=bob.address,
+        sender=alice,
+        receiver=bob,
         value=100,
         gas=10,
         gas_price=1
     )
     
     tx2 = blockchain.Transaction(
-        sender=alice.address,
-        receiver=bob.address,
+        sender=alice,
+        receiver=bob,
         value=50,
         gas=10,
         gas_price=1
