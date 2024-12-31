@@ -1,4 +1,4 @@
-from .eth.eth_blockchain import EthBlockchain, Transaction
+from eth.eth_blockchain import EthBlockchain, Transaction
 
 def main():
     # Initialize blockchain
